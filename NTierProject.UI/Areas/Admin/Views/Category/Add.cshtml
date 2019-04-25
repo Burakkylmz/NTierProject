@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+<form action="/Admin/AppUser/Add" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Name">Ismi</label>
+        <input type="text" name="Name" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Soyadı</label>
+        <input type="text" name="LastName" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Telefon No</label>
+        <input type="text" name="PhoneNumber" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Address">Adres</label>
+        <input type="text" name="Address" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" name="Email" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="UserName">Kullanıcı Adı</label>
+        <input type="text" name="UserName" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Password">Kullanıcı Şifresi</label>
+        <input type="text" name="Password" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Role">Kullanıcı Rolü</label>
+        <select name="Role" class="form-control">
+            @foreach (var item in Enum.GetNames(typeof(NTierProject.Model.Option.Role)))
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Image">Fotoğraf</label>
+        <input type="file" name="Image" value="" class="form-control" />
+    </div>
+    <input type="submit" name="name" value="Ekle" class="form-control btn btn-primary" />
+</form>
+

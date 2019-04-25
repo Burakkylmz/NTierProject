@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D95CDC5C-8CDD-4A4E-9D54-FD9C251F3894}</ProjectGuid>
+    <ProjectGuid>{003F06D6-37F5-4977-A328-79D2000795E6}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NTierProject.UI</RootNamespace>
-    <AssemblyName>NTierProject.UI</AssemblyName>
+    <RootNamespace>NTierProject.AuthService</RootNamespace>
+    <AssemblyName>NTierProject.AuthService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -43,13 +43,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -59,6 +63,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -94,61 +104,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css\AdminLTE.min.css" />
-    <Content Include="Content\Css\bootstrap.min.css" />
-    <Content Include="Content\Css\font-awesome.min.css" />
-    <Content Include="Content\Css\ionicons.min.css" />
-    <Content Include="Content\Css\_all-skins.min.css" />
-    <Content Include="Content\Fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\Fonts\ionicons.svg" />
-    <Content Include="Content\Images\userlogo.jpg" />
-    <Content Include="Content\Scripts\adminlte.min.js" />
-    <Content Include="Content\Scripts\bootstrap.min.js" />
-    <Content Include="Content\Scripts\demo.js" />
-    <Content Include="Content\Scripts\fastclick.js" />
-    <Content Include="Content\Scripts\jquery.min.js" />
-    <Content Include="Content\Scripts\jquery.slimscroll.min.js" />
-    <Content Include="Content\Uploads\UserImages\CruptedImages\userlogo.jpg" />
-    <Content Include="Content\Uploads\UserImages\OriginalImages\userlogo.jpg" />
-    <Content Include="Content\Uploads\UserImages\XSmallImages\userlogo.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AppUserController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Models\DTO\AppUserDTO.cs" />
-    <Compile Include="Areas\Admin\Models\DTO\CategoryDTO.cs" />
-    <Compile Include="Authorize\UserAuthorize.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Attributes\LoginControl.cs" />
+    <Compile Include="Models\Credentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_AdminLayoutPage.cshtml" />
-    <Content Include="Content\Fonts\ionicons.eot" />
-    <Content Include="Content\Fonts\ionicons.ttf" />
-    <Content Include="Content\Fonts\ionicons.woff" />
-    <Content Include="Content\Fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\Fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\Fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\Fonts\FontAwesome.otf" />
-    <Content Include="Areas\Admin\Views\AppUser\Add.cshtml" />
-    <Content Include="Areas\Admin\Views\AppUser\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -159,24 +129,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Home\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Auth\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NTierProject.AuthService\NTierProject.AuthService.csproj">
-      <Project>{003f06d6-37f5-4977-a328-79d2000795e6}</Project>
-      <Name>NTierProject.AuthService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NTierProject.Core\NTierProject.Core.csproj">
       <Project>{8ec90c6d-5853-4189-b01b-d4ab4b32dc99}</Project>
       <Name>NTierProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTierProject.DAL\NTierProject.DAL.csproj">
+      <Project>{fd35a86f-8b62-4323-908f-38d2f7cb8be5}</Project>
+      <Name>NTierProject.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTierProject.Map\NTierProject.Map.csproj">
+      <Project>{abf70b87-cf2b-44fa-aeb9-8da90ea396af}</Project>
+      <Name>NTierProject.Map</Name>
     </ProjectReference>
     <ProjectReference Include="..\NTierProject.Model\NTierProject.Model.csproj">
       <Project>{0f54e2fc-3e0a-4053-a509-aea26518f4b2}</Project>
       <Name>NTierProject.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\NTierProject.Service\NTierProject.Service.csproj">
-      <Project>{97cf718b-aea6-4b45-844d-890f3da2ee7e}</Project>
+      <Project>{97CF718B-AEA6-4B45-844D-890F3DA2EE7E}</Project>
       <Name>NTierProject.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\NTierProject.Utility\NTierProject.Utility.csproj">
@@ -197,9 +170,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49725</DevelopmentServerPort>
+          <DevelopmentServerPort>56943</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49725/</IISUrl>
+          <IISUrl>http://localhost:56943/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
