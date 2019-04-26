@@ -14,17 +14,17 @@ namespace NTierProject.UI
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              name: "RecipeDetail",
+              url: "Recipe/RecipeDetail/{slug}",
+              defaults: new { controller = "Recipe", action = "RecipeDetail", slug = "" },
+              namespaces: new[] { "TarifDefterim.UI.Controllers" } // Area içerisindeki aynı isimdeki controller ile çakışmaması için kullanıyoruz.
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "NTierProject.UI.Controllers" }
-            );
-
-            routes.MapRoute(
-                name: "GenerateSlug",
-                url: "{GenerateSlug}",
-                defaults: new { controller = "Home", action = "show" },
-                constraints: new { GenerateSlug = ".+" }
             );
         }
     }

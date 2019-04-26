@@ -1,41 +1,38 @@
 ﻿
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Update";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
 }
+@model NTierProject.UI.Areas.Admin.Models.DTO.AppUserDTO
 
-
-
-
-
-<form action="/Admin/AppUser/Add" method="post" enctype="multipart/form-data">
+<form action="/Admin/AppUser/Update" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="Name">Ismi</label>
-        <input type="text" name="FirstName" value="" class="form-control" />
+        <input type="text" name="FirstName" value="@Model.FirstName" class="form-control" />
     </div>
     <div class="form-group">
         <label for="LastName">Soyadı</label>
-        <input type="text" name="LastName" value="" class="form-control" />
+        <input type="text" name="LastName" value="@Model.LastName" class="form-control" />
     </div>
     <div class="form-group">
         <label for="PhoneNumber">Telefon No</label>
-        <input type="text" name="PhoneNumber" value="" class="form-control" />
+        <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control" />
     </div>
     <div class="form-group">
         <label for="Address">Adres</label>
-        <input type="text" name="Address" value="" class="form-control" />
+        <input type="text" name="Address" value="@Model.Address" class="form-control" />
     </div>
     <div class="form-group">
         <label for="Email">Email</label>
-        <input type="text" name="Email" value="" class="form-control" />
+        <input type="text" name="Email" value="@Model.Email" class="form-control" />
     </div>
     <div class="form-group">
         <label for="UserName">Kullanıcı Adı</label>
-        <input type="text" name="UserName" value="" class="form-control" />
+        <input type="text" name="UserName" value="@Model.UserName" class="form-control" />
     </div>
     <div class="form-group">
         <label for="Password">Kullanıcı Şifresi</label>
-        <input type="text" name="Password" value="" class="form-control" />
+        <input type="text" name="Password" value="@Model.Password" class="form-control" />
     </div>
     <div class="form-group">
         <label for="Role">Kullanıcı Rolü</label>
@@ -50,5 +47,7 @@
         <label for="Image">Fotoğraf</label>
         <input type="file" name="Image" value="" class="form-control" />
     </div>
-    <input type="submit" name="name" value="Ekle" class="form-control btn btn-primary" />
+    <input type="text" style="visibility:hidden" name="ID" value="@Model.ID" />
+    <input type="submit" name="name" value="Güncelle" class="form-control btn btn-primary" />
 </form>
+

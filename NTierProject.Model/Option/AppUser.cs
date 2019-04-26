@@ -1,6 +1,7 @@
 ﻿using NTierProject.Core.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,12 @@ namespace NTierProject.Model.Option
 {
     public enum Role
     {
+        [Display(Name = "Belirtilmiyor")]
         None=0,
+        [Display(Name = "Sistem Yöneticisi")]
         Admin=1,
-        Member=2
+        [Display(Name = "Çalışan")]
+        Member =2
     }
 
     public class AppUser: CoreEntity
